@@ -65,3 +65,14 @@ input[type='text'] {
 #questiontext {
   display: inline-block;
 }
+
+footer {
+  width: 700px;
+  margin: 0 auto;
+  font-size: 0.8em;
+  padding-top: 2em;
+}
+
+form {
+  padding-bottom: 2em;
+}
