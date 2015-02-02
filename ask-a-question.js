@@ -1,6 +1,7 @@
 Questions = new Mongo.Collection("questions");
 
   if (Meteor.isClient) {
+    Meteor.subscribe("questions");
 
     Template.body.helpers({
       questions: function () {
@@ -49,10 +50,10 @@ Questions = new Mongo.Collection("questions");
       }
     });
 
-// if (Meteor.isServer) {
-//   Meteor.startup(function () {
-//     // code to run on server at startup
-//   });
-// }
+if (Meteor.isServer) {
+  Meteor.publish("questions", function () {
+      return Questions.find();
+    });
+}
 
 
