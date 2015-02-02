@@ -3,12 +3,18 @@
 </head>
 
 <body>
-  <h1>Ask a question about Rabea's Meteor.js class</h1>
+  <h1>test app</h1>
 
-  {{> hello}}
+  <ul>
+       {{#each questions}}
+         {{> question}}
+       {{/each}}
+     </ul>
+<form class="new-question">
+   <input type="text" name="question" placeholder="Ask me!" />
+ </form>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="question">
+  <li>{{text}}</li>
 </template>
