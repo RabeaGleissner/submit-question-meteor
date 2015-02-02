@@ -3,12 +3,20 @@
 </head>
 
 <body>
+  <div class="wrapper">
   {{> loginButtons}}
-  <h1>test app</h1>
+  <nav>
+    <ul>
+      <li id="google">Please google your own answer.</li>
+      <li id="research">Sorry, I'm going to have to research that and get back to you</li>
+      <li id="answered">Answered!</li>
+    </ul>
+  </nav>
+  <h1>Ask Rabea a question about Meteor!</h1>
   
   {{#if currentUser}}
     <form class="new-question">
-        <input type="text" name="text" placeholder="Ask me!" />
+        <input type="text" name="text" placeholder="Go on, ask me!" />
     </form>
   {{/if}}
 
@@ -18,32 +26,26 @@
        {{/each}}
      </ul>
 
-<div id='container'>
-    <div id="google">
-      <h3>Please google your own answer.</h3>
-    </div>
 
-    <div id="research">
-      <h3>Sorry, I'm going to have to research that and get back to you</h3>
-    </div>
-    <div id="answered">
-      <h3>Answered!</h3>
-    </div>
 </div>
 </body>
 
 <template name="question">
   <li id="{{idTag}}">
-    {{username}} is asking: {{text}}
-    {{#if isOwner}}
+  <div id='username'> {{username}}:</div>
+  <div id="questiontext">{{text}}</div>
+    {{#if isOwner }}
     <button class="delete">delete</button>
     {{/if}}
 
+
   {{#if isRabea}}
+    <button class="delete">delete</button>
     <button class="set-google">Google</button>
     <button class="set-research">Research</button>
     <button class="set-answered">Answered</button>
     <button class="clear">Clear class</button>
   {{/if}}
-  </li>
+
+</li>
 </template>

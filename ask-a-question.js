@@ -51,7 +51,8 @@ Questions = new Mongo.Collection("questions");
       idTag: function () {
         if (this.category == 'google') {
           return 'google';
-        } else if (this.category == 'research') {
+        } else if 
+        (this.category == 'research') {
           return 'research';
         } else if (this.category == 'answered') {
           return 'answered';
