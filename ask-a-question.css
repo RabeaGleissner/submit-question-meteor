@@ -16,18 +16,16 @@ h2 {
 }
 
 #google {
-  width: 400px;
+  
   background-color: lightgrey;
 }
 
 #research {
-  width: 400px;
-  
+ 
   background-color: lightblue;
 }
 
 #answered {
-  width: 400px;
-  float: left;
-  background-color: lightyellow;
+  
+  background-color: lightgreen;
 }

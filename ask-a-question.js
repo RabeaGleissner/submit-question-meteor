@@ -25,14 +25,32 @@ Questions = new Mongo.Collection("questions");
 
       "click .set-google": function () {
       Meteor.call("setGoogle", this._id);
-    }
+    },
+
+      "click .set-research": function () {
+        Meteor.call("setResearch", this._id);
+      },
+      "click .set-answered": function () {
+        Meteor.call("setAnswered", this._id);
+      }
 
     });
 
     Template.question.helpers({
       isOwner: function () {
         return this.owner === Meteor.userId();
+      },
+
+      idTag: function () {
+        if (this.google == true) {
+          return 'google'
+        } else if (this.research == true) {
+          return 'research'
+        } else if (this.answered == true) {
+          return 'answered'
+        }
       }
+
     });
 
     Accounts.ui.config({
@@ -42,7 +60,6 @@ Questions = new Mongo.Collection("questions");
   }
 
   Meteor.methods({
-    
     addQuestion: function (text) {
       // Make sure the user is logged in before inserting a task
       if (! Meteor.userId()) {
@@ -65,9 +82,24 @@ Questions = new Mongo.Collection("questions");
       Questions.update(id, {$set: 
         {google: true}
       });
+    },
+
+    setResearch: function (id) {
+      console.log('set Research');
+      Questions.update(id, {$set: 
+        {research: true}
+      });
+    },
+
+    setAnswered: function (id) {
+      console.log('set answered');
+      Questions.update(id, {$set: 
+        {answered: true}
+      });
     }
 
     });
+
 
 if (Meteor.isServer) {
   Meteor.publish("questions", function () {
