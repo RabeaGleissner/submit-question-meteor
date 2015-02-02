@@ -3,6 +3,7 @@
 </head>
 
 <body>
+  {{> loginButtons}}
   <h1>test app</h1>
   
       <ul>
@@ -17,5 +18,8 @@
 </body>
 
 <template name="question">
-  <li>{{text}}</li>
+  <li>
+    {{text}}
+    <button class="delete">delete</button>
+  </li>
 </template>
