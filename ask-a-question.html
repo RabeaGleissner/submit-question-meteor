@@ -11,15 +11,19 @@
        {{> question}}
        {{/each}}
      </ul>
-
+{{#if currentUser}}
   <form class="new-question">
       <input type="text" name="text" placeholder="Ask me!" />
   </form>
+{{/if}}
 </body>
 
 <template name="question">
   <li>
-    {{text}}
+    {{username}} is asking: {{text}}
+
+
     <button class="delete">delete</button>
+
   </li>
 </template>

@@ -22,7 +22,7 @@ Questions = new Mongo.Collection("questions");
           username: Meteor.user().username
         });
 
-      //   event.target.text.value = "";
+        event.target.text.value = "";
       }
     });
 
