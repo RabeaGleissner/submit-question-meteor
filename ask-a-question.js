@@ -44,6 +44,10 @@ Questions = new Mongo.Collection("questions");
         return this.owner === Meteor.userId();
       },
 
+      isRabea: function () {
+        return Meteor.userId() === "tMWD5PiAGTxDYfMDL";
+      },
+
       idTag: function () {
         if (this.category == 'google') {
           return 'google';
@@ -52,7 +56,7 @@ Questions = new Mongo.Collection("questions");
         } else if (this.category == 'answered') {
           return 'answered';
         } else if (this.category == 'clear') {
-          return ''
+          return '';
         }
       }
 
