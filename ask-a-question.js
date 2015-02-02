@@ -62,7 +62,9 @@ Questions = new Mongo.Collection("questions");
 
     setGoogle: function (id) {
       console.log('set Google');
-      Questions.update(id, {google: true});
+      Questions.update(id, {$set: 
+        {google: true}
+      });
     }
 
     });
