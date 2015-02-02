@@ -32,6 +32,9 @@ Questions = new Mongo.Collection("questions");
       },
       "click .set-answered": function () {
         Meteor.call("setAnswered", this._id);
+      },
+      "click .clear": function () {
+        Meteor.call("clearClass", this._id);
       }
 
     });
@@ -42,12 +45,14 @@ Questions = new Mongo.Collection("questions");
       },
 
       idTag: function () {
-        if (this.google == true) {
-          return 'google'
-        } else if (this.research == true) {
-          return 'research'
-        } else if (this.answered == true) {
-          return 'answered'
+        if (this.category == 'google') {
+          return 'google';
+        } else if (this.category == 'research') {
+          return 'research';
+        } else if (this.category == 'answered') {
+          return 'answered';
+        } else if (this.category == 'clear') {
+          return ''
         }
       }
 
@@ -80,21 +85,28 @@ Questions = new Mongo.Collection("questions");
     setGoogle: function (id) {
       console.log('set Google');
       Questions.update(id, {$set: 
-        {google: true}
+        {category: 'google'}
       });
     },
 
     setResearch: function (id) {
       console.log('set Research');
       Questions.update(id, {$set: 
-        {research: true}
+        {category: 'research'}
       });
     },
 
     setAnswered: function (id) {
       console.log('set answered');
       Questions.update(id, {$set: 
-        {answered: true}
+        {category: 'answered'}
+      });
+    },
+
+    clearClass: function (id) {
+      console.log('clearClass');
+      Questions.update(id, {$set: 
+        {category: 'clear'}
       });
     }
 
