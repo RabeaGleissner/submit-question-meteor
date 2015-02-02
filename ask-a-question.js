@@ -24,6 +24,11 @@ Questions = new Mongo.Collection("questions");
       }
     });
 
+    Template.question.helpers({
+      isOwner: function () {
+        return this.owner === Meteor.userId();
+      }
+    });
 
     Accounts.ui.config({
       passwordSignupFields: "USERNAME_ONLY"
