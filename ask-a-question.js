@@ -4,7 +4,23 @@ Questions = new Mongo.Collection("questions");
 
     Template.body.helpers({
       questions: function () {
-        return Questions.find({});
+        return Questions.find({}, {sort: {createdAt: -1}});
+      }
+    });
+
+    Template.body.events({
+      "submit .new-question": function (event) {
+        event.preventDefault();
+        console.log('default prevented')
+
+       var text = event.target.text.value;
+        
+        Questions.insert({
+          text: text,
+          createdAt: new Date()
+        });
+
+      //   event.target.text.value = "";
       }
     });
   }
