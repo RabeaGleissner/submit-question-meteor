@@ -1,1 +1,33 @@
-/* CSS declarations go here */
+body {
+  font-family: Tahoma, sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 2.3em;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+#container {
+  float:right;
+  width: 400px;
+}
+
+#google {
+  width: 400px;
+  background-color: lightgrey;
+}
+
+#research {
+  width: 400px;
+  
+  background-color: lightblue;
+}
+
+#answered {
+  width: 400px;
+  float: left;
+  background-color: lightyellow;
+}

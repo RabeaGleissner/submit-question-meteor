@@ -21,7 +21,12 @@ Questions = new Mongo.Collection("questions");
     Template.question.events({
       "click .delete": function () {
     Meteor.call("deleteQuestion", this._id);
-      }
+      },
+
+      "click .set-google": function () {
+      Meteor.call("setGoogle", this._id);
+    }
+
     });
 
     Template.question.helpers({
@@ -37,12 +42,12 @@ Questions = new Mongo.Collection("questions");
   }
 
   Meteor.methods({
+    
     addQuestion: function (text) {
       // Make sure the user is logged in before inserting a task
       if (! Meteor.userId()) {
         throw new Meteor.Error("not-authorized");
       }
-
     Questions.insert({
           text: text,
           createdAt: new Date(),
@@ -50,9 +55,16 @@ Questions = new Mongo.Collection("questions");
           username: Meteor.user().username
         });
       },
-      deleteQuestion: function (questionId) {
+
+    deleteQuestion: function (questionId) {
         Questions.remove(questionId);
-      }
+      },
+
+    setGoogle: function (id) {
+      console.log('set Google');
+      Questions.update(id, {google: true});
+    }
+
     });
 
 if (Meteor.isServer) {

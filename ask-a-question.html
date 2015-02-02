@@ -6,23 +6,39 @@
   {{> loginButtons}}
   <h1>test app</h1>
   
+  {{#if currentUser}}
+    <form class="new-question">
+        <input type="text" name="text" placeholder="Ask me!" />
+    </form>
+  {{/if}}
+
       <ul>
        {{#each questions}}
        {{> question}}
        {{/each}}
      </ul>
-{{#if currentUser}}
-  <form class="new-question">
-      <input type="text" name="text" placeholder="Ask me!" />
-  </form>
-{{/if}}
+
+<div id='container'>
+    <div id="google">
+      <h2>Please google your own answer.</h2>
+    </div>
+
+    <div id="research">
+      <h2>Sorry, I'm going to have to research that and get back to you</h2>
+    </div>
+ </div>
+    <div id="answered">
+      <h2>Answered!</h2>
+    </div>
+
 </body>
 
 <template name="question">
-  <li>
+  <li id="{{#if google}}google{{/if}}">
     {{username}} is asking: {{text}}
     {{#if isOwner}}
     <button class="delete">delete</button>
     {{/if}}
+    <button class="set-google">Google</button>
   </li>
 </template>
