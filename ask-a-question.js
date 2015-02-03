@@ -61,6 +61,12 @@ Questions = new Mongo.Collection("questions");
         }
       }
 
+      // userInCollection: function() {
+      //   users = Meteor.users.find();
+      //  return users.map(profile.name) 
+
+      // }
+
     });
 
     Accounts.ui.config({
@@ -79,7 +85,8 @@ Questions = new Mongo.Collection("questions");
           text: text,
           createdAt: new Date(),
           owner: Meteor.userId(),
-          username: Meteor.user().username
+          username: Meteor.user().fullName
+   // TODO: find way to save Twitter name as username
         });
       },
 

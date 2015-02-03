@@ -28,12 +28,16 @@
 
      <footer>Apologies to anyone who is colour blind! Please ask your desk neighbour for explanations.</footer>
 
+
+
 </div>
 </body>
 
 <template name="question">
   <li id="{{idTag}}">
+  <!-- {{#each userInCollection}} -->
   <div id='username'> {{username}}:</div>
+  <!-- {{/each}} -->
   <div id="questiontext">{{text}}</div>
     {{#if isOwner }}
     <button class="delete">delete</button>
@@ -50,3 +54,11 @@
 
 </li>
 </template>
+<!-- 
+<template name="list">
+  <ul>
+  {{#each userInCollection}}
+      <li>{{profile.name}}</li>
+  {{/each}}
+  </ul>
+</template> -->
