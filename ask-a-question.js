@@ -45,7 +45,7 @@ Questions = new Mongo.Collection("questions");
       },
 
       isRabea: function () {
-        return Meteor.userId() === "tMWD5PiAGTxDYfMDL";
+        return Meteor.userId() === "7ZFE9yzTDxfMfmm4P";
       },
 
       idTag: function () {
@@ -61,11 +61,6 @@ Questions = new Mongo.Collection("questions");
         }
       }
 
-      // userInCollection: function() {
-      //   users = Meteor.users.find();
-      //  return users.map(profile.name) 
-
-      // }
 
     });
 
@@ -85,8 +80,7 @@ Questions = new Mongo.Collection("questions");
           text: text,
           createdAt: new Date(),
           owner: Meteor.userId(),
-          username: Meteor.user().fullName
-   // TODO: find way to save Twitter name as username
+          username: Meteor.user().profile.name
         });
       },
 
