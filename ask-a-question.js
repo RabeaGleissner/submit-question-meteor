@@ -45,7 +45,7 @@ Questions = new Mongo.Collection("questions");
       },
 
       isRabea: function () {
-        return Meteor.userId() === "7ZFE9yzTDxfMfmm4P";
+        return Meteor.userId() === "nNhxauNBbPcHYzaEc";
       },
 
       idTag: function () {
